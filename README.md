@@ -47,7 +47,9 @@ So there's basically no way to search for a list of all venues closest to you th
 When doing a regular search on the foursquare.com website for "food" closest to my current location, I get a different list than the one that returns from my API call to their "Search Venue" endpoint. So when you're searching for a food item on Dish, you're only searching through a handful of the venues around you that use Foursquare, not all of them (plus, there's a limit of 50 venues returned and some don't have menus uploaded).
 
 After digging into stackoverflow, I found that I wasn't the only one experiencing this issue:
+
 [Case 1](https://stackoverflow.com/questions/16581038/why-does-foursquare-search-not-return-venues-closest-to-my-specified-location)
+
 [Case 2](https://stackoverflow.com/questions/33302515/foursquarevenues-searchintent-browse-returns-more-places-when-specifying-categ)
 
 Conculsion: If you feel like the search doesn't return as many options as you'd think it would, this is why. If I were to add features to this app, I would look into using the [Locu API](https://dev.locu.com/) or Yelp API in replacement.
