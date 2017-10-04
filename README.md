@@ -28,7 +28,29 @@ This repo uses yarn as a package manager. [Yarn can be installed using homebrew.
 
 ## How does it work?
 
-I initially use the HTML5 Geolocation API to get the user's location on the `<App />` component's componentDidMount lifecycle method. I then use the Foursquare API to fetch a list of restaurants. Once the response is received, I traverse through the data to extract the menu data along with some basic information about the restaurant and set this to the state (`this.state.menuData`). Once a user enters in a food item in the input, I search through all restaurant menus to check if their name or description contain the input value and set these food items on the state (`this.state.foodItems`) along with some basic information about the restaurant. `this.state.foodItems` is then passed as a `prop` to the `<Map />` component, which maps through each food item and renders a `<Marker />` for each.
+I initially use the HTML5 Geolocation API to get the user's location on the `<App />` component's componentDidMount lifecycle method. I then use the Foursquare API to fetch a list of restaurants. Once the response is received, I traverse through the data to extract the menu data along with some basic information about the restaurant and set this to the state (`this.state.menuData`). Once a user searches for a food item in the input, I search through all restaurant menus to check if their name or description contain the input value and set these food items on the state (`this.state.foodItems`) along with some basic information about the restaurant. `this.state.foodItems` is then passed as a `prop` to the `<Map />` component, which maps through each food item and renders a `<Marker />` for each.
+
+<br />
+
+## Thoughts and Considerations
+
+One of the biggest issues with the app is the Foursquare API endpoint for venues. At the time of development, there was not an endpoint that returned a list of ALL venues within a given radius.
+
+The "Search Venue" endpoint takes an 'intent' parameter. The most relevant values to pass it are 'checkin' and 'browse'. Here's what they each do:
+
+'checkin': Finds results that the current user...is likely to check in to.
+
+'browse': Finds venues within a given area. Unlike the checkin intent, browse searches an entire region instead of only finding Venues closest to a point.
+
+So there's basically no way to search for a list of all venues closest to you that use Foursquare...seems to be a big feature to exclude from their API.
+
+When doing a regular search on the foursquare.com website for "food" closest to my current location, I get a different list than the one that returns from my API call to their "Search Venue" endpoint. So when you're searching for a food item on Dish, you're only searching through a handful of the venues around you that use Foursquare, not all of them (plus, there's a limit of 50 venues returned and some don't have menus uploaded).
+
+After digging into stackoverflow, I found that I wasn't the only one experiencing this issue:
+[Case 1](https://stackoverflow.com/questions/16581038/why-does-foursquare-search-not-return-venues-closest-to-my-specified-location)
+[Case 2](https://stackoverflow.com/questions/33302515/foursquarevenues-searchintent-browse-returns-more-places-when-specifying-categ)
+
+Conculsion: If you feel like the search doesn't return as many options as you'd think it would, this is why. If I were to add features to this app, I would look into using the [Locu API](https://dev.locu.com/) or Yelp API in replacement.
 
 <br />
 
@@ -44,10 +66,9 @@ I initially use the HTML5 Geolocation API to get the user's location on the `<Ap
 * Get directions to restaurant
 * Save food items
 * Expand search radius
+* Make searching algorithm more complex (handle plurals)
 * Display modal if geolocation api fails
 * Unit tests
-* add in ability to click on marker and item will show in list
-* search dropdown with previously searched
-* boost search functionality
-
-talk about limitations of foursquare api
+* Add in ability to click on marker and item will show in list
+* Search dropdown with previously searched
+* Use different API for more accurate venue searching
