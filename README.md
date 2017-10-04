@@ -3,8 +3,6 @@
 ## What does it do?
 This app lets a user find the cheapest (or most expensive) food item of their searching. Simply enter a food item into the search bar, look through the list of options and/or find them on the map!
 
-Check out the demo [here](https://amituuush.github.io/dish-app/)
-
 <br />
 
 ## What did you build it with?
