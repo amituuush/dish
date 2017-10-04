@@ -36,11 +36,11 @@ I initially use the HTML5 Geolocation API to get the user's location on the `<Ap
 
 One of the biggest issues with the app is the Foursquare API endpoint for venues. At the time of development, there was not an endpoint that returned a list of ALL venues within a given radius.
 
-The "Search Venue" endpoint takes an 'intent' parameter. The most relevant values to pass it are 'checkin' and 'browse'. Here's what they each do:
+The "Search Venue" endpoint takes an ('intent') parameter. The most relevant values to pass it are ('checkin') and ('browse'). Here's what they each do:
 
-'checkin': Finds results that the current user...is likely to check in to.
+('checkin'): Finds results that the current user...is likely to check in to.
 
-'browse': Finds venues within a given area. Unlike the checkin intent, browse searches an entire region instead of only finding Venues closest to a point.
+('browse'): Finds venues within a given area. Unlike the checkin intent, browse searches an entire region instead of only finding Venues closest to a point.
 
 So there's basically no way to search for a list of all venues closest to you that use Foursquare...seems to be a big feature to exclude from their API.
 
