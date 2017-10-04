@@ -34,7 +34,7 @@ I initially use the HTML5 Geolocation API to get the user's location on the `<Ap
 
 In order to create an app that allowed a user to search for a food item within a given radius, I needed menu data. Unfortunately, the Google Places API did not have sufficient menu data and due to a lack of time I decided to use the Foursquare API to retrieve this data. I do realize the instructions stated to use the Google Places API; however, I felt inspired that this app would do an excellent job of demonstrating my skill set and abilities, so I opted to make a minor tweak and use the Google Maps JavaScript API instead. I do hope this isn't an issue.
 
-<br />>
+<br />
 
 One of the biggest issues with the app is the Foursquare API endpoint for venues. At the time of development, there was not an endpoint that returned a list of ALL venues within a given radius.
 
